@@ -1,0 +1,34 @@
+#！/bin/bash
+# 首先su root
+cd ~
+apt install git
+# 安装源码
+mkdir zhongdianyf
+cd zhongdianyf
+mkdir root && mkdir home && mkdir Env
+cd root
+git clone https://CoffeeInTea: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@github.com/FavorWen/zdyf.git
+
+# 安装fabric
+cd ~/zhongdianyf/home
+mkdir -p GOPATH/src/github.com && cd GOPATH/src/github.com
+mkdir hyperledger
+git clone https://github.com/CoffeeInTea/chaincode.git
+
+cd hyperledger
+git clone https://github.com/hyperledger/fabric.git
+
+cd fabric
+git checkout -b release-1.4 origin/release-1.4
+git branch
+git clone https://github.com/CoffeeInTea/fabric-bin.git
+
+echo 'export PATH=/root/zhongdianyf/home/GOPATH/src/github.com/hyperledger/fabric/fabric-bin:$PATH' >> ~/.bashrc
+source ~/.bashrc
+cd ~/zhongdianyf/home
+git clone https://CoffeeInTea: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@github.com/FavorWen/frontend_proj2.git
+
+git clone https://CoffeeInTea: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@github.com/FavorWen/frontend_proj3.git
+
+cd ~/zhongdianyf/Env
+git clone https://github.com/CoffeeInTea/fabric-sdk-py.git

@@ -1,0 +1,13 @@
+apt install firewalld -y
+firewall-cmd --zone=public --add-port=8000/tcp --permanent
+firewall-cmd --zone=public --add-port=3306/tcp --permanent
+firewall-cmd --zone=public --add-port=8082/tcp --permanent
+firewall-cmd --zone=public --add-port=8083/tcp --permanent
+firewall-cmd --zone=public --add-port=/tcp --permanent
+firewall-cmd --reload
+
+# 业务链测试端口
+apt install firewalld -y
+firewall-cmd --zone=public --add-port=10094/tcp --permanent
+firewall-cmd --zone=public --add-port=10096/tcp --permanent
+firewall-cmd --reload
